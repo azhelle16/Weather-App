@@ -121,9 +121,13 @@ class WeatherInfo extends Component {
 
 	}
 
+	componentDidMount() {
+
+	}
+
 	showDetailedInfo = (e) => {
 
-		console.log(weatherJSON.forecast.forecastday[e])
+		//console.log(weatherJSON.forecast.forecastday[e])
 
 		this.setState ({
 			showMe: false,
@@ -141,16 +145,6 @@ class WeatherInfo extends Component {
 	}
 
 	render() {
-
-		//console.log(this.state.showMe)
-
-		//if in detailed then want to check another location
-		// if (this.props.states == true) {
-		// 	this.setState({
-		// 		showMe: true
-		// 	})
-		// 	//this.props.states = false;
-		// }
 
 		weatherJSON = this.props.info
 

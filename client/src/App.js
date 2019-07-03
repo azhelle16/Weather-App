@@ -3,8 +3,10 @@ import React, { Component } from 'react';
 import './App.css';
 import './style.css';
 import WeatherDiv from "./WeatherInfo";
+import Loading from './Loading';
 
 let weatherInfo = ""
+let int // interval variable
 
 class App extends Component {
 
@@ -25,6 +27,8 @@ class App extends Component {
 
 	getCurrentWeather = () => {
 
+		console.log("replay")
+
 		let al = ""
 		let isOK = true
 
@@ -39,6 +43,12 @@ class App extends Component {
 
 		if (isOK) {
 
+			weatherInfo = <Loading />
+
+			this.setState({
+				weatherData: weatherInfo
+			})
+
 			fetch("/getCurrentWeather/"+this.state.zipcode,{ 
 			    method: 'GET',
 			    headers: {
@@ -50,10 +60,12 @@ class App extends Component {
 			   		//this.updateWeatherInfo(l)
 			   		//console.log(l)
 
-			   		if (l.error)
+			   		if (l.error) {
 			   			weatherInfo=<div className="errorMsg">{l.error}</div>
-			   		else 
+			   		} else {
+			   			int = setInterval(() => this.getCurrentWeather(), 300000)
 						weatherInfo = <WeatherDiv info={l}/>
+			   		}
 						
 					this.setState({
 						weatherData: weatherInfo
@@ -64,6 +76,7 @@ class App extends Component {
 
 			// let l = wjson
 			// //console.log(l)
+			// int = setInterval(() => this.getCurrentWeather(), 300000)
 			// weatherInfo = <WeatherDiv info={l} states={true}/>
 			// this.setState({
 			// 	weatherData: weatherInfo
@@ -88,7 +101,7 @@ class App extends Component {
 		    	<div id="mainContainer">
 		    		<div id="searchArea">
 	    				<input type="text" id="zipCode" placeholder="Enter Zip Code" onChange={this.handleSubmitButton}/>
-	    				<button className="submit" onClick={this.getCurrentWeather}>Search</button>
+	    				<button className="submit" onClick={() => {clearInterval(int);this.getCurrentWeather();}}>Search</button>
 	    				{this.state.alert}
 		    		</div>
 		    		{this.state.weatherData}

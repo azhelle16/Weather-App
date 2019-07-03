@@ -159,6 +159,21 @@ p {
 	padding: 5px;
 }
 
+/* LOADING GIF */
+
+.loadingClass {
+	height: 200px;
+	width: 200px;
+}
+
+.loadingDiv {
+	margin: 0 auto;
+	/*border: 2px solid red;*/
+	justify-content: center;
+	text-align: center;
+	padding-top: 20px;
+}
+
 /* FOOTER */
 
 .page-footer {
