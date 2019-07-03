@@ -100,7 +100,7 @@ class App extends Component {
 		    <div id="parentContainer">
 		    	<div id="mainContainer">
 		    		<div id="searchArea">
-	    				<input type="text" id="zipCode" placeholder="Enter Zip Code" onChange={this.handleSubmitButton}/>
+	    				<input autocomplete="off" type="text" id="zipCode" placeholder="Enter Zip Code" onChange={this.handleSubmitButton}/>
 	    				<button className="submit" onClick={() => {clearInterval(int);this.getCurrentWeather();}}>Search</button>
 	    				{this.state.alert}
 		    		</div>

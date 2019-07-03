@@ -285,7 +285,7 @@ class WeatherInfo extends Component {
 									<br />
 									<span className="iconDesc">{this.props.info.forecast.forecastday[this.state.index].day.condition.text}</span>
 									<br /><br />
-									<p>Sunrise: {this.props.info.forecast.forecastday[this.state.index].astro.sunrise} &#8457;</p>
+									<p>Sunrise: {this.props.info.forecast.forecastday[this.state.index].astro.sunrise}</p>
 									<p>Sunset: {this.props.info.forecast.forecastday[this.state.index].astro.sunset}</p>
 								</div>
 								<div id="dinfo2">

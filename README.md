@@ -14,7 +14,7 @@ Express - _https://www.npmjs.com/package/express_
 
 Axios - _https://www.npmjs.com/package/axios_
 
-Request - _https://www.npmjs.com/package/request_
+DotEnv - _https://www.npmjs.com/package/dotenv_
 
 ## Folder Structure
 
